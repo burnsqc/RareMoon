@@ -1,7 +1,0 @@
-{
-  "parent": "technologica:block/glue_model",
-  "textures": {
-    "face": "technologica:block/glue",
-    "particle": "technologica:block/glue"
-  }
-}

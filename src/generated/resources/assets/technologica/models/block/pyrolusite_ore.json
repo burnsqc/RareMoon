@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "technologica:block/pyrolusite_ore"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:eroded_badlands",
-  "features": "technologica:oil_well",
-  "step": "local_modifications"
-}

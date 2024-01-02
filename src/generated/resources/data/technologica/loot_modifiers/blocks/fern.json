@@ -1,9 +1,0 @@
-{
-  "type": "technologica:blocks/fern",
-  "conditions": [
-    {
-      "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:blocks/fern"
-    }
-  ]
-}

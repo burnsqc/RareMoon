@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "bottom": "technologica:block/ebony_planks",
-    "side": "technologica:block/ebony_planks",
-    "top": "technologica:block/ebony_planks"
-  }
-}

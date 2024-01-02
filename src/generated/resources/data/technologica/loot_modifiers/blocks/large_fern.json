@@ -1,9 +1,0 @@
-{
-  "type": "technologica:blocks/large_fern",
-  "conditions": [
-    {
-      "condition": "forge:loot_table_id",
-      "loot_table_id": "minecraft:blocks/large_fern"
-    }
-  ]
-}

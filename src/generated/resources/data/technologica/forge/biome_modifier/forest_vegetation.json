@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:forest",
-  "features": "technologica:trees_chestnut",
-  "step": "vegetal_decoration"
-}

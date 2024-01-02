@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:snowy_slopes",
-  "features": "technologica:trees_aspen",
-  "step": "vegetal_decoration"
-}

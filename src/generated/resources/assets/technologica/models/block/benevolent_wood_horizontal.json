@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "end": "technologica:block/benevolent_log",
-    "side": "technologica:block/benevolent_log"
-  }
-}

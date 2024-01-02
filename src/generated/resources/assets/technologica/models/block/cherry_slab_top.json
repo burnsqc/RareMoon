@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "bottom": "technologica:block/cherry_planks",
-    "side": "technologica:block/cherry_planks",
-    "top": "technologica:block/cherry_planks"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:windswept_hills",
-  "features": "technologica:trees_aspen",
-  "step": "vegetal_decoration"
-}

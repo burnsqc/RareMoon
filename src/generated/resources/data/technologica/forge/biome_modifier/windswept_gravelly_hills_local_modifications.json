@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:windswept_gravelly_hills",
-  "features": "technologica:oil_well",
-  "step": "local_modifications"
-}

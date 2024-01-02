@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:badlands",
-  "features": "technologica:brine_pool",
-  "step": "fluid_springs"
-}

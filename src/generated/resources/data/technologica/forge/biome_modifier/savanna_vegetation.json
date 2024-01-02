@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:savanna",
-  "features": "technologica:trees_zebrawood",
-  "step": "vegetal_decoration"
-}

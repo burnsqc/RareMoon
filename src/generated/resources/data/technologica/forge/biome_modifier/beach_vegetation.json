@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:beach",
-  "features": "technologica:trees_coconut",
-  "step": "vegetal_decoration"
-}

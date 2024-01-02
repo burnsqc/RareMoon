@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "bottom": "technologica:block/aspen_planks",
-    "side": "technologica:block/aspen_planks",
-    "top": "technologica:block/aspen_planks"
-  }
-}

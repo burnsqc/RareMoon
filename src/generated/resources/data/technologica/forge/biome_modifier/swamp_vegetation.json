@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:swamp",
-  "features": "technologica:trees_orange",
-  "step": "vegetal_decoration"
-}

@@ -1,25 +1,25 @@
 modLoader="javafml"
 loaderVersion="[47,)"
-logoFile="technologica.png"
+logoFile="raremoon.png"
 license="All Rights Reserved"
 
 [[mods]]
-	modId="technologica"
+	modId="raremoon"
 	version="1.0.0"
-	displayName="Technologica"
+	displayName="RareMoon"
 	credits="Special thanks to the generous help of the Forge/NeoForge Discord community!"
-	authors="burnsqc, NecroticPlague1, QueenSeeker"
+	authors="burnsqc"
 	description='''
-    An ambitious mod aiming to provide a primarily technical progression with considerable breadth and depth.  Technologica adds new trees, crops, minerals, and creatures both fantastical and real to the overworld.'''
+    A small mod that occasionally adds rare moons which affect gameplay for the night.'''
 
-[[dependencies.technologica]] 
+[[dependencies.raremoon]] 
     modId="forge" 
     mandatory=true
     versionRange="[47,)"
     ordering="NONE"
     side="BOTH"
 
-[[dependencies.technologica]]
+[[dependencies.raremoon]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.20.1]"

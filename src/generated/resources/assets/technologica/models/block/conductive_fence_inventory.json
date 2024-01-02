@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/fence_inventory",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "texture": "technologica:block/conductive_planks"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/slab_top",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "bottom": "technologica:block/malevolent_planks",
-    "side": "technologica:block/malevolent_planks",
-    "top": "technologica:block/malevolent_planks"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "end": "technologica:block/stripped_frostbitten_log",
-    "side": "technologica:block/stripped_frostbitten_log"
-  }
-}

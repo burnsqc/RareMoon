@@ -1,6 +1,0 @@
-{
-  "parent": "technologica:block/motor2",
-  "textures": {
-    "motor": "technologica:block/motor_20hp"
-  }
-}

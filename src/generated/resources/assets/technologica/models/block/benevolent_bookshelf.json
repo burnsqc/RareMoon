@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "end": "technologica:block/benevolent_planks",
-    "side": "technologica:block/benevolent_bookshelf"
-  }
-}

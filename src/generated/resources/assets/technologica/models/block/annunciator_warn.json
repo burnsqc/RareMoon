@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "technologica:block/annunciator_warn",
-    "side": "technologica:block/annunciator_side",
-    "top": "technologica:block/annunciator_side"
-  }
-}

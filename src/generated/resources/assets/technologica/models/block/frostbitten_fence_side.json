@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/fence_side",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "texture": "technologica:block/frostbitten_planks"
-  }
-}

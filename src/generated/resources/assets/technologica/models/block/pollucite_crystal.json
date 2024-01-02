@@ -1,7 +1,0 @@
-{
-  "parent": "technologica:block/leafy_crystal",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "crystal": "technologica:block/pollucite_crystal"
-  }
-}

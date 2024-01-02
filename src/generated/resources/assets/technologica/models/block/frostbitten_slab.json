@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/slab",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "bottom": "technologica:block/frostbitten_planks",
-    "side": "technologica:block/frostbitten_planks",
-    "top": "technologica:block/frostbitten_planks"
-  }
-}

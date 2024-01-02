@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/outer_stairs",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "bottom": "technologica:block/infernal_planks",
-    "side": "technologica:block/infernal_planks",
-    "top": "technologica:block/infernal_planks"
-  }
-}

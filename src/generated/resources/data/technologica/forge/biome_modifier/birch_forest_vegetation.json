@@ -1,6 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:birch_forest",
-  "features": "technologica:trees_peach",
-  "step": "vegetal_decoration"
-}

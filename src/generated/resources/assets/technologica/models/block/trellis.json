@@ -1,7 +1,0 @@
-{
-  "parent": "technologica:block/trellis_model",
-  "render_type": "minecraft:cutout",
-  "textures": {
-    "texture": "technologica:block/trellis"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:block/inner_stairs",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "bottom": "technologica:block/walnut_planks",
-    "side": "technologica:block/walnut_planks",
-    "top": "technologica:block/walnut_planks"
-  }
-}

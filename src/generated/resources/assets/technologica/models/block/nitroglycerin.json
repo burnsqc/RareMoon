@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "bottom": "technologica:block/nitroglycerin_bottom",
-    "side": "technologica:block/nitroglycerin_side",
-    "top": "technologica:block/nitroglycerin_top"
-  }
-}

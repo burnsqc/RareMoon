@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "layer0": "technologica:item/frostbitten_sign"
-  }
-}

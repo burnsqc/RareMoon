@@ -1,9 +1,0 @@
-{
-  "parent": "technologica:block/hollow_log",
-  "render_type": "minecraft:translucent",
-  "textures": {
-    "end": "technologica:block/frostbitten_log_top",
-    "inside": "technologica:block/stripped_frostbitten_log_solid",
-    "side": "technologica:block/frostbitten_log"
-  }
-}

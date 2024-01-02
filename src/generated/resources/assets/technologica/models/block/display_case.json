@@ -1,8 +1,0 @@
-{
-  "parent": "technologica:block/display",
-  "render_type": "minecraft:cutout_mipped",
-  "textures": {
-    "base": "minecraft:block/black_wool",
-    "case": "technologica:block/display_case"
-  }
-}

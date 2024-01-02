@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "technologica:block/sawmill_upper_side_end",
-    "side": "technologica:block/sawmill_upper_side_end",
-    "top": "technologica:block/sawmill_top_middle"
-  }
-}

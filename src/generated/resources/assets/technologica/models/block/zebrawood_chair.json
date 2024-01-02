@@ -1,7 +1,0 @@
-{
-  "parent": "technologica:block/chair",
-  "render_type": "minecraft:solid",
-  "textures": {
-    "planks": "technologica:block/zebrawood_planks"
-  }
-}

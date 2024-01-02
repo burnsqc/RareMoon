@@ -1,9 +1,0 @@
-{
-  "parent": "technologica:block/panel",
-  "textures": {
-    "bottom": "technologica:block/sleeping_bag_bottom",
-    "particle": "technologica:block/sleeping_bag_side",
-    "side": "technologica:block/sleeping_bag_side",
-    "top": "technologica:block/sleeping_bag_top"
-  }
-}

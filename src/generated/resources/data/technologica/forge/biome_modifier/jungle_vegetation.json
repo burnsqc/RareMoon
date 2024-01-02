@@ -1,9 +1,0 @@
-{
-  "type": "forge:add_features",
-  "biomes": "minecraft:jungle",
-  "features": [
-    "technologica:trees_modified_jungle",
-    "technologica:patch_peppercorns"
-  ],
-  "step": "vegetal_decoration"
-}

@@ -1,7 +1,0 @@
-{
-  "parent": "technologica:block/gourd",
-  "render_type": "minecraft:cutout_mipped",
-  "textures": {
-    "gourd": "technologica:block/cucumbers"
-  }
-}
