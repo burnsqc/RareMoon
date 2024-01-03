@@ -9,8 +9,7 @@ license="All Rights Reserved"
 	displayName="RareMoon"
 	credits="Special thanks to the generous help of the Forge/NeoForge Discord community!"
 	authors="burnsqc"
-	description='''
-    A small mod that occasionally adds rare moons which affect gameplay for the night.'''
+	description='''A small mod that occasionally adds rare moons which affect gameplay for the night.'''
 
 [[dependencies.raremoon]] 
     modId="forge" 

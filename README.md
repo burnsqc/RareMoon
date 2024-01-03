@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/burnsqc/Technologica/1.19.2/src/main/resources/technologica.png">
+  <img src="https://raw.githubusercontent.com/burnsqc/RareMoon/main/src/main/resources/raremoon.png">
 </div>
 
 Technologica is a mod for Minecraft which is currently under development.  As such, at this time the development team makes no guarantee of functionality. 
