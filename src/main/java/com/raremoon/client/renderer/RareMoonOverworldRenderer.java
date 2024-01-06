@@ -12,6 +12,7 @@ import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexBuffer;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.math.Axis;
+import com.raremoon.RareMoon;
 
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
@@ -32,6 +33,10 @@ import net.minecraftforge.client.extensions.IForgeDimensionSpecialEffects;
 
 public class RareMoonOverworldRenderer extends DimensionSpecialEffects implements IForgeDimensionSpecialEffects {
 	private static final ResourceLocation MOON_LOCATION = new ResourceLocation("textures/environment/moon_phases.png");
+	private static final ResourceLocation BLOOD_MOON_LOCATION = new ResourceLocation(RareMoon.MOD_ID, "textures/environment/blood_moon_phases.png");
+	private static final ResourceLocation FORTUNE_MOON_LOCATION = new ResourceLocation(RareMoon.MOD_ID, "textures/environment/fortune_moon_phases.png");
+	private static final ResourceLocation HARVEST_MOON_LOCATION = new ResourceLocation(RareMoon.MOD_ID, "textures/environment/harvest_moon_phases.png");
+	private static final ResourceLocation BLUE_MOON_LOCATION = new ResourceLocation(RareMoon.MOD_ID, "textures/environment/blue_moon_phases.png");
 	private static final ResourceLocation SUN_LOCATION = new ResourceLocation("textures/environment/sun.png");
 	private final Minecraft minecraft;
 	private VertexBuffer starBuffer;
@@ -123,7 +128,19 @@ public class RareMoonOverworldRenderer extends DimensionSpecialEffects implement
 					bufferbuilder.vertex(matrix4f1, -f12, 100.0F, f12).uv(0.0F, 1.0F).endVertex();
 					BufferUploader.drawWithShader(bufferbuilder.end());
 					f12 = 20.0F;
-					RenderSystem.setShaderTexture(0, MOON_LOCATION);
+
+					if (moonType == 1) {
+						RenderSystem.setShaderTexture(0, BLOOD_MOON_LOCATION);
+					} else if (moonType == 2) {
+						RenderSystem.setShaderTexture(0, FORTUNE_MOON_LOCATION);
+					} else if (moonType == 3) {
+						RenderSystem.setShaderTexture(0, HARVEST_MOON_LOCATION);
+					} else if (moonType == 4) {
+						RenderSystem.setShaderTexture(0, BLUE_MOON_LOCATION);
+					} else {
+						RenderSystem.setShaderTexture(0, MOON_LOCATION);
+					}
+
 					int k = level.getMoonPhase();
 					int l = k % 4;
 					int i1 = k / 4 % 2;

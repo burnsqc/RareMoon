@@ -7,8 +7,10 @@ import com.raremoon.listeners.BloodMoonListener;
 import com.raremoon.listeners.HarvestMoonListener;
 import com.raremoon.listeners.ServerTickEventListener;
 import com.raremoon.network.packets.ClientboundSetMoonTypePacket;
+import com.raremoon.registration.deferred.GlobalLootModifierSerializers;
 import com.raremoon.setup.ClientSetup;
 import com.raremoon.setup.config.RareMoonConfigCommon;
+import com.raremoon.setup.events.Commands;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
@@ -33,6 +35,8 @@ public class RareMoon {
 
 	public RareMoon() {
 		ModLoadingContext.get().registerConfig(Type.COMMON, RareMoonConfigCommon.COMMON_SPEC, "raremoon-common.toml");
+		GlobalLootModifierSerializers.init();
+		FORGE_EVENT_BUS.addListener(Commands::register);
 		FORGE_EVENT_BUS.addListener(ServerTickEventListener::onServerTickEvent);
 		FORGE_EVENT_BUS.register(new BloodMoonListener());
 		FORGE_EVENT_BUS.register(new HarvestMoonListener());
