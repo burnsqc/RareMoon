@@ -18,7 +18,7 @@ public class ClientboundPacketHandlers {
 	public static void handleSetMoonType(ClientboundSetMoonTypePacket packet, final Supplier<NetworkEvent.Context> context) {
 		RenderRareMoonTint.setMoonType(packet.getMoonType());
 		RareMoonOverworldRenderer.setMoonType(packet.getMoonType());
-		if (RareMoonConfigClient.RARE_MOON_CHAT_NOTIFICATION.get()) {
+		if (RareMoonConfigClient.RARE_MOON_NOTIFICATION.get()) {
 			Minecraft mc = Minecraft.getInstance();
 			LocalPlayer player = mc.player;
 

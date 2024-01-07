@@ -34,6 +34,7 @@ public class RareMoon {
 	public static int PACKET_ID = 0;
 
 	public RareMoon() {
+		LOGGER.info("RAREMOON NOW LOADING FOR DISTRIBUTION - " + FMLEnvironment.dist.toString());
 		ModLoadingContext.get().registerConfig(Type.COMMON, RareMoonConfigCommon.COMMON_SPEC, "raremoon-common.toml");
 		GlobalLootModifierSerializers.init();
 		FORGE_EVENT_BUS.addListener(Commands::register);

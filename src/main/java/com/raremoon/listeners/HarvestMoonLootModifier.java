@@ -17,10 +17,10 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 
-public class FortuneMoonLootModifier extends LootModifier {
-	public static final Supplier<Codec<FortuneMoonLootModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.create(inst -> codecStart(inst).apply(inst, FortuneMoonLootModifier::new)));
+public class HarvestMoonLootModifier extends LootModifier {
+	public static final Supplier<Codec<HarvestMoonLootModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.create(inst -> codecStart(inst).apply(inst, HarvestMoonLootModifier::new)));
 
-	public FortuneMoonLootModifier(final LootItemCondition[] conditions) {
+	public HarvestMoonLootModifier(final LootItemCondition[] conditions) {
 		super(conditions);
 	}
 
@@ -28,9 +28,9 @@ public class FortuneMoonLootModifier extends LootModifier {
 	@Override
 	protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
 		RareMoonOverworldExtension data = RareMoonOverworldExtension.getData(context.getLevel().getServer());
-		if (data.getMoon() == 2) {
+		if (data.getMoon() == 3) {
 			for (ItemStack loot : generatedLoot) {
-				if (loot.getItem() == Items.COAL || loot.getItem() == Items.RAW_IRON || loot.getItem() == Items.RAW_COPPER || loot.getItem() == Items.RAW_GOLD || loot.getItem() == Items.REDSTONE || loot.getItem() == Items.EMERALD || loot.getItem() == Items.LAPIS_LAZULI || loot.getItem() == Items.DIAMOND) {
+				if (loot.getItem() == Items.WHEAT || loot.getItem() == Items.WHEAT_SEEDS || loot.getItem() == Items.CARROT || loot.getItem() == Items.POTATO || loot.getItem() == Items.BEETROOT || loot.getItem() == Items.BEETROOT_SEEDS || loot.getItem() == Items.MELON_SEEDS || loot.getItem() == Items.PUMPKIN_SEEDS || loot.getItem() == Items.TORCHFLOWER_SEEDS || loot.getItem() == Items.COCOA_BEANS || loot.getItem() == Items.PITCHER_POD) {
 					loot.setCount(loot.getCount() * 2);
 				}
 			}

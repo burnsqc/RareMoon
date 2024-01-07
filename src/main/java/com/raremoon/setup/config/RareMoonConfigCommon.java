@@ -11,10 +11,10 @@ public final class RareMoonConfigCommon {
 	public static final ForgeConfigSpec.ConfigValue<Integer> RARE_MOON_RARITY;
 
 	static {
-		BUILDER.comment("RARE MOON COMMON CONFIG\n");
+		BUILDER.comment("RAREMOON COMMON CONFIG\n");
 
 		BUILDER.comment("In single-player, these settings will affect only you.");
-		BUILDER.comment("In multi-player, these settings will affect all player on the server.  Please consider your players when making changes.");
+		BUILDER.comment("In multi-player, these settings will affect all players on the server.  Please consider your players when making changes.");
 		BUILDER.comment("These settings have been set to defaults selected by the Rare Moon development team.\n");
 
 		BUILDER.push("RARE MOON RARITY");

@@ -11,6 +11,7 @@ import com.raremoon.world.level.saveddata.RareMoonOverworldExtension;
 
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
@@ -29,12 +30,13 @@ public class BlueMoonLootModifier extends LootModifier {
 		RareMoonOverworldExtension data = RareMoonOverworldExtension.getData(context.getLevel().getServer());
 		if (data.getMoon() == 4) {
 			for (ItemStack loot : generatedLoot) {
-				loot.setCount(loot.getCount() * 2);
+				if (loot.getItem() == Items.COD || loot.getItem() == Items.SALMON || loot.getItem() == Items.TROPICAL_FISH || loot.getItem() == Items.PUFFERFISH) {
+					loot.setCount(loot.getCount() * 2);
+				}
 			}
 		}
 
 		return generatedLoot;
-
 	}
 
 	@Override

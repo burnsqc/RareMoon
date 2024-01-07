@@ -300,10 +300,10 @@ public class RareMoonOverworldRenderer extends DimensionSpecialEffects implement
 	@Override
 	public Vec3 getBrightnessDependentFogColor(Vec3 p_108908_, float p_108909_) {
 		long time = minecraft.level.getDayTime() - 12000;
-		float red = (moonType == 1) ? Mth.clamp(time < 12000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
-		float yellow = (moonType == 2) ? Mth.clamp(time < 12000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
-		float green = (moonType == 3) ? Mth.clamp(time < 12000 ? time / 4000F : -(time - 12000) / 400F, 0.0F, 0.1F) : 0;
-		float blue = (moonType == 4) ? Mth.clamp(time < 12000 ? time / 2000F : -(time - 12000) / 2000F, 0.0F, 0.2F) : 0;
+		float red = (moonType == 1) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
+		float yellow = (moonType == 2) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
+		float green = (moonType == 3) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 400F, 0.0F, 0.1F) : 0;
+		float blue = (moonType == 4) ? Mth.clamp(time < 6000 ? time / 2000F : -(time - 12000) / 2000F, 0.0F, 0.2F) : 0;
 		return p_108908_.multiply(p_108909_ * 0.94F + 0.06F + red + yellow, p_108909_ * 0.94F + 0.06F + green + yellow, p_108909_ * 0.91F + 0.09F + blue);
 	}
 
