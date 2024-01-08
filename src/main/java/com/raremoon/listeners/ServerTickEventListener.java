@@ -9,7 +9,7 @@ import net.minecraftforge.event.TickEvent.LevelTickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class ServerTickEventListener {
-	private static boolean flag = false;
+	private static boolean flag = true;
 
 	@SubscribeEvent
 	public static void onServerTickEvent(final LevelTickEvent event) {

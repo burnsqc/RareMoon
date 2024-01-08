@@ -13,6 +13,7 @@ import com.mojang.blaze3d.vertex.VertexBuffer;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.math.Axis;
 import com.raremoon.RareMoon;
+import com.raremoon.client.multiplayer.ClientLevelDataExtension;
 
 import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
@@ -42,7 +43,6 @@ public class RareMoonOverworldRenderer extends DimensionSpecialEffects implement
 	private VertexBuffer starBuffer;
 	private VertexBuffer skyBuffer;
 	private VertexBuffer darkBuffer;
-	private static int moonType = 0;
 
 	public RareMoonOverworldRenderer() {
 		super(Float.NaN, true, DimensionSpecialEffects.SkyType.NORMAL, false, false);
@@ -50,10 +50,6 @@ public class RareMoonOverworldRenderer extends DimensionSpecialEffects implement
 		this.createStars();
 		this.createLightSky();
 		this.createDarkSky();
-	}
-
-	public static void setMoonType(int moonTypeIn) {
-		moonType = moonTypeIn;
 	}
 
 	@Override
@@ -72,10 +68,10 @@ public class RareMoonOverworldRenderer extends DimensionSpecialEffects implement
 					RenderSystem.depthMask(false);
 
 					long time = minecraft.level.getDayTime() - 12000;
-					float red = (moonType == 1) ? Mth.clamp(time < 12000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
-					float yellow = (moonType == 2) ? Mth.clamp(time < 12000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
-					float green = (moonType == 3) ? Mth.clamp(time < 12000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
-					float blue = (moonType == 4) ? Mth.clamp(time < 12000 ? time / 2000F : -(time - 12000) / 2000F, 0.0F, 0.2F) : 0;
+					float red = (ClientLevelDataExtension.getMoon() == 1) ? Mth.clamp(time < 12000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
+					float yellow = (ClientLevelDataExtension.getMoon() == 2) ? Mth.clamp(time < 12000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
+					float green = (ClientLevelDataExtension.getMoon() == 3) ? Mth.clamp(time < 12000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
+					float blue = (ClientLevelDataExtension.getMoon() == 4) ? Mth.clamp(time < 12000 ? time / 2000F : -(time - 12000) / 2000F, 0.0F, 0.2F) : 0;
 
 					RenderSystem.setShaderColor(f + red + yellow, f1 + green + yellow, f2 + blue, 1.0F);
 
@@ -129,13 +125,13 @@ public class RareMoonOverworldRenderer extends DimensionSpecialEffects implement
 					BufferUploader.drawWithShader(bufferbuilder.end());
 					f12 = 20.0F;
 
-					if (moonType == 1) {
+					if (ClientLevelDataExtension.getMoon() == 1) {
 						RenderSystem.setShaderTexture(0, BLOOD_MOON_LOCATION);
-					} else if (moonType == 2) {
+					} else if (ClientLevelDataExtension.getMoon() == 2) {
 						RenderSystem.setShaderTexture(0, FORTUNE_MOON_LOCATION);
-					} else if (moonType == 3) {
+					} else if (ClientLevelDataExtension.getMoon() == 3) {
 						RenderSystem.setShaderTexture(0, HARVEST_MOON_LOCATION);
-					} else if (moonType == 4) {
+					} else if (ClientLevelDataExtension.getMoon() == 4) {
 						RenderSystem.setShaderTexture(0, BLUE_MOON_LOCATION);
 					} else {
 						RenderSystem.setShaderTexture(0, MOON_LOCATION);
@@ -300,10 +296,10 @@ public class RareMoonOverworldRenderer extends DimensionSpecialEffects implement
 	@Override
 	public Vec3 getBrightnessDependentFogColor(Vec3 p_108908_, float p_108909_) {
 		long time = minecraft.level.getDayTime() - 12000;
-		float red = (moonType == 1) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
-		float yellow = (moonType == 2) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
-		float green = (moonType == 3) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 400F, 0.0F, 0.1F) : 0;
-		float blue = (moonType == 4) ? Mth.clamp(time < 6000 ? time / 2000F : -(time - 12000) / 2000F, 0.0F, 0.2F) : 0;
+		float red = (ClientLevelDataExtension.getMoon() == 1) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
+		float yellow = (ClientLevelDataExtension.getMoon() == 2) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.1F) : 0;
+		float green = (ClientLevelDataExtension.getMoon() == 3) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 400F, 0.0F, 0.1F) : 0;
+		float blue = (ClientLevelDataExtension.getMoon() == 4) ? Mth.clamp(time < 6000 ? time / 2000F : -(time - 12000) / 2000F, 0.0F, 0.2F) : 0;
 		return p_108908_.multiply(p_108909_ * 0.94F + 0.06F + red + yellow, p_108909_ * 0.94F + 0.06F + green + yellow, p_108909_ * 0.91F + 0.09F + blue);
 	}
 

@@ -5,8 +5,10 @@ import org.apache.logging.log4j.Logger;
 
 import com.raremoon.listeners.BloodMoonListener;
 import com.raremoon.listeners.HarvestMoonListener;
+import com.raremoon.listeners.PlayerLoggedInEventListener;
 import com.raremoon.listeners.ServerTickEventListener;
 import com.raremoon.network.packets.ClientboundSetMoonTypePacket;
+import com.raremoon.network.packets.ClientboundSyncSavedDataPacket;
 import com.raremoon.registration.deferred.GlobalLootModifierSerializers;
 import com.raremoon.setup.ClientSetup;
 import com.raremoon.setup.config.RareMoonConfigCommon;
@@ -37,11 +39,15 @@ public class RareMoon {
 		LOGGER.info("RAREMOON NOW LOADING FOR DISTRIBUTION - " + FMLEnvironment.dist.toString());
 		ModLoadingContext.get().registerConfig(Type.COMMON, RareMoonConfigCommon.COMMON_SPEC, "raremoon-common.toml");
 		GlobalLootModifierSerializers.init();
+
 		FORGE_EVENT_BUS.addListener(Commands::register);
 		FORGE_EVENT_BUS.addListener(ServerTickEventListener::onServerTickEvent);
 		FORGE_EVENT_BUS.register(new BloodMoonListener());
 		FORGE_EVENT_BUS.register(new HarvestMoonListener());
+		FORGE_EVENT_BUS.register(new PlayerLoggedInEventListener());
+
 		CHANNEL.registerMessage(PACKET_ID++, ClientboundSetMoonTypePacket.class, ClientboundSetMoonTypePacket::encode, ClientboundSetMoonTypePacket::decode, ClientboundSetMoonTypePacket::handle);
+		CHANNEL.registerMessage(PACKET_ID++, ClientboundSyncSavedDataPacket.class, ClientboundSyncSavedDataPacket::encode, ClientboundSyncSavedDataPacket::decode, ClientboundSyncSavedDataPacket::handle);
 
 		if (FMLEnvironment.dist.isClient()) {
 			ClientSetup.init();

@@ -11,6 +11,7 @@ import net.minecraftforge.fml.config.ModConfig.Type;
 public class ClientSetup {
 	public static void init() {
 		ModLoadingContext.get().registerConfig(Type.CLIENT, RareMoonConfigClient.CLIENT_SPEC, "raremoon-client.toml");
+
 		RareMoon.MOD_EVENT_BUS.addListener(DimensionSpecialEffects::register);
 		RareMoon.FORGE_EVENT_BUS.register(new RenderRareMoonTint());
 	}

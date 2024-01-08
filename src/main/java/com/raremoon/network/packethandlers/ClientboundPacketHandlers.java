@@ -2,9 +2,9 @@ package com.raremoon.network.packethandlers;
 
 import java.util.function.Supplier;
 
-import com.raremoon.client.renderer.RareMoonOverworldRenderer;
-import com.raremoon.client.renderer.RenderRareMoonTint;
+import com.raremoon.client.multiplayer.ClientLevelDataExtension;
 import com.raremoon.network.packets.ClientboundSetMoonTypePacket;
+import com.raremoon.network.packets.ClientboundSyncSavedDataPacket;
 import com.raremoon.setup.config.RareMoonConfigClient;
 
 import net.minecraft.client.Minecraft;
@@ -16,14 +16,15 @@ import net.minecraftforge.network.NetworkEvent;
 
 public class ClientboundPacketHandlers {
 	public static void handleSetMoonType(ClientboundSetMoonTypePacket packet, final Supplier<NetworkEvent.Context> context) {
-		RenderRareMoonTint.setMoonType(packet.getMoonType());
-		RareMoonOverworldRenderer.setMoonType(packet.getMoonType());
+		ClientLevelDataExtension data = new ClientLevelDataExtension();
+		data.setMoon(packet.getMoonType());
+
 		if (RareMoonConfigClient.RARE_MOON_NOTIFICATION.get()) {
 			Minecraft mc = Minecraft.getInstance();
 			LocalPlayer player = mc.player;
-
 			int moon = packet.getMoonType();
 			String message = "";
+
 			if (moon == 1) {
 				message = "raremoon.rise.blood";
 				player.level().playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.END_PORTAL_SPAWN, SoundSource.BLOCKS, 0.2F, 0.2F, false);
@@ -41,8 +42,13 @@ public class ClientboundPacketHandlers {
 				player.level().playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.BELL_RESONATE, SoundSource.BLOCKS, 5.0F, 0.1F, false);
 				player.level().playLocalSound(player.getX(), player.getY(), player.getZ(), SoundEvents.BELL_RESONATE, SoundSource.BLOCKS, 5.0F, 0.3F, false);
 			}
-			player.displayClientMessage(Component.translatable(message), true);
 
+			player.displayClientMessage(Component.translatable(message), true);
 		}
+	}
+
+	public static void handleSyncSavedData(ClientboundSyncSavedDataPacket packet, final Supplier<NetworkEvent.Context> context) {
+		ClientLevelDataExtension data = new ClientLevelDataExtension();
+		data.setMoon(packet.getMoonType());
 	}
 }
