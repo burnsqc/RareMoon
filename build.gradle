@@ -6,18 +6,21 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-version = '1.0.0-beta1'
-group = 'com.raremoon'
+group = "com.${gradle.ext.modID}"
 
 base {
-    archivesName = 'RareMoon-1.20.1'
+    archivesName = "${gradle.ext.modName} ${gradle.ext.modVersion} for ${gradle.ext.minecraftVersion}"
 }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
+println "Minecraft: ${gradle.ext.minecraftVersion}"
+println "Forge: ${gradle.ext.forgeVersion}"
+println "${gradle.ext.modName}: ${gradle.ext.modVersion}"
+
 minecraft {
-    mappings channel: 'official', version: '1.20.1'
+    mappings channel: 'official', version: "${gradle.ext.minecraftVersion}"
     copyIdeResources = true
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -28,41 +31,42 @@ minecraft {
             property 'forge.logging.console.level', 'debug'
 
             mods {
-                raremoon {
+                "${gradle.ext.modID}" {
                     source sourceSets.main
                 }
             }
         }
 
         client {
-            property 'forge.enabledGameTestNamespaces', 'raremoon'
+            property 'forge.enabledGameTestNamespaces', "${gradle.ext.modID}mod"
         }
 
         server {
-            property 'forge.enabledGameTestNamespaces', 'raremoon'
-            args '--nogui'
+            property 'forge.enabledGameTestNamespaces', "${gradle.ext.modID}mod"
         }
 
         gameTestServer {
-            property 'forge.enabledGameTestNamespaces', 'raremoon'
+            property 'forge.enabledGameTestNamespaces', "${gradle.ext.modID}mod"
         }
 
         data {
-            args '--mod', 'raremoon', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', "${gradle.ext.modID}mod", '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceSets.main.resources { 
+    srcDir 'src/generated/resources' 
+}
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.20.1-47.2.1'
+    minecraft "net.minecraftforge:forge:${gradle.ext.minecraftVersion}-${gradle.ext.forgeVersion}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 mixin {
-	add sourceSets.main, 'raremoon.mixins.refmap.json'
-	config 'raremoon.mixins.json'
+	add sourceSets.main, "${gradle.ext.modID}mod.mixins.refmap.json"
+	config "${gradle.ext.modID}mod.mixins.json"
 	debug.verbose = true
 	debug.export = true
 }
@@ -70,16 +74,15 @@ mixin {
 tasks.named('jar', Jar).configure {
     manifest {
         attributes([
-            "Specification-Title": "raremoon",
-            "Specification-Vendor": "raremoonmod",
+            "Specification-Title": "${gradle.ext.modID}",
+            "Specification-Vendor": "${gradle.ext.modID}mod",
             "Specification-Version": "1",
             "Implementation-Title": project.name,
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"raremoonmod",
+            "Implementation-Version":"${gradle.ext.modVersion}",
+            "Implementation-Vendor" :"${gradle.ext.modID}mod",
             "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
-
     finalizedBy 'reobfJar'
 }
 

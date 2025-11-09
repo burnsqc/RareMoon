@@ -5,10 +5,11 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;
 import org.apache.logging.log4j.MarkerManager;
 
-import com.raremoon.config.RareMoonConfigCommon;
+import com.raremoon.config.RareMoonCommonConfig;
 import com.raremoon.network.packets.clientbound.SetMoonTypePacket;
 import com.raremoon.network.packets.clientbound.SyncSavedDataPacket;
-import com.raremoon.registration.deferred.GlobalLootModifierSerializers;
+import com.raremoon.registration.deferred.RareMoonGlobalLootModifierSerializers;
+import com.raremoon.registration.deferred.RareMoonSoundEvents;
 import com.raremoon.setup.client.ClientSetup;
 
 import net.minecraft.SharedConstants;
@@ -23,17 +24,18 @@ import net.minecraftforge.network.simple.SimpleChannel;
 @Mod(RareMoon.MOD_ID)
 public class RareMoon {
 	public static final String MOD_ID = "raremoon";
-	public static final String VERSION = "1.0.0-alpha1";
+	public static final String VERSION = "1.0.0";
 	public static final Logger LOGGER = LogManager.getLogger("RAREMOON");
-	private static final Marker MARKER = MarkerManager.getMarker("LOADING");
+	private static final Marker LOADING = MarkerManager.getMarker("LOADING");
 	public static final String PROTOCOL_VERSION = "1";
 	public static final SimpleChannel CHANNEL = NetworkRegistry.newSimpleChannel(new ResourceLocation(MOD_ID, "main"), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals, PROTOCOL_VERSION::equals);
 	public static int PACKET_ID = 0;
 
 	public RareMoon() {
-		LOGGER.info(MARKER, "RAREMOON " + VERSION + " NOW LOADING FOR MINECRAFT " + SharedConstants.getCurrentVersion().getName() + " ON " + FMLEnvironment.dist.toString() + " DISTRIBUTION");
-		GlobalLootModifierSerializers.init();
-		ModLoadingContext.get().registerConfig(Type.COMMON, RareMoonConfigCommon.COMMON_SPEC, "raremoon-common.toml");
+		LOGGER.info(LOADING, "RAREMOON " + VERSION + " NOW LOADING FOR MINECRAFT " + SharedConstants.getCurrentVersion().getName() + " ON " + FMLEnvironment.dist.toString() + " DISTRIBUTION");
+		RareMoonGlobalLootModifierSerializers.init();
+		RareMoonSoundEvents.init();
+		ModLoadingContext.get().registerConfig(Type.COMMON, RareMoonCommonConfig.SPEC, "raremoon-common.toml");
 		CHANNEL.registerMessage(PACKET_ID++, SetMoonTypePacket.class, SetMoonTypePacket::encode, SetMoonTypePacket::decode, SetMoonTypePacket::handle);
 		CHANNEL.registerMessage(PACKET_ID++, SyncSavedDataPacket.class, SyncSavedDataPacket::encode, SyncSavedDataPacket::decode, SyncSavedDataPacket::handle);
 		if (FMLEnvironment.dist.isClient()) {

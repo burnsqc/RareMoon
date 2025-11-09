@@ -8,7 +8,10 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @Mod.EventBusSubscriber(bus = EventBusSubscriber.Bus.FORGE)
-public class RegisterCommandsEventListener {
+
+public final class RegisterCommandsEventListener {
+	private RegisterCommandsEventListener() {
+	}
 
 	@SubscribeEvent
 	public static void onRegisterCommandsEvent(final RegisterCommandsEvent event) {

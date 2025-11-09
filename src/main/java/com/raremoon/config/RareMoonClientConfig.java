@@ -1,0 +1,34 @@
+package com.raremoon.config;
+
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber
+public final class RareMoonClientConfig {
+	public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
+	public static final ForgeConfigSpec SPEC;
+
+	public static final ForgeConfigSpec.ConfigValue<Boolean> RARE_MOON_TEXT_NOTIFICATION;
+	public static final ForgeConfigSpec.ConfigValue<Boolean> RARE_MOON_SOUND_NOTIFICATION;
+	public static final ForgeConfigSpec.ConfigValue<Integer> MOON_COLOR_CORRECTION;
+
+	private RareMoonClientConfig() {
+	}
+
+	static {
+		BUILDER.comment("RAREMOON CLIENT CONFIG\n");
+		BUILDER.comment("In single-player, these settings will affect only you.  In multi-player, these settings will still affect only you.");
+		BUILDER.comment("These settings have been set to defaults selected by the RareMoon development team.  It is recommended to make a backup of this file before modifying it.\n");
+
+		BUILDER.push("NOTIFICATIONS");
+		RARE_MOON_TEXT_NOTIFICATION = BUILDER.comment("true - Display a message when a rare moon appears.\nfalse - Do not display a message when a rare moon appears.").define("Text Notifications", true);
+		RARE_MOON_SOUND_NOTIFICATION = BUILDER.comment("true - Play a sound when a rare moon appears.\nfalse - Do not play a sound when a rare moon appears.").define("Sound Notifications", true);
+		BUILDER.pop();
+
+		BUILDER.push("COLOR");
+		MOON_COLOR_CORRECTION = BUILDER.comment("Color correction factor.  25 is intended for vanilla, but higher numbers might be better if using shaders.").defineInRange("Factor", 25, 0, 100);
+		BUILDER.pop();
+
+		SPEC = BUILDER.build();
+	}
+}

@@ -1,0 +1,22 @@
+{
+  "blood_moon": {
+    "sounds": [
+      "raremoon:blood_moon"
+    ]
+  },
+  "fortune_moon": {
+    "sounds": [
+      "raremoon:fortune_moon"
+    ]
+  },
+  "harvest_moon": {
+    "sounds": [
+      "raremoon:harvest_moon"
+    ]
+  },
+  "blue_moon": {
+    "sounds": [
+      "raremoon:blue_moon"
+    ]
+  }
+}

@@ -1,13 +1,15 @@
 package com.raremoon.client.multiplayer;
 
-public class ClientLevelDataExtension {
-	private static int moonType;
+import com.raremoon.util.MoonType;
 
-	public static int getMoon() {
+public class ClientLevelDataExtension {
+	private static MoonType moonType;
+
+	public static MoonType getMoon() {
 		return moonType;
 	}
 
-	public void setMoon(int moonTypeIn) {
+	public void setMoon(MoonType moonTypeIn) {
 		moonType = moonTypeIn;
 	}
 }

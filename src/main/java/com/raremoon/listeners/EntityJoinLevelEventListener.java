@@ -13,15 +13,20 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.network.PacketDistributor;
 
 @Mod.EventBusSubscriber(bus = EventBusSubscriber.Bus.FORGE)
-public class EntityJoinLevelEventListener {
+
+public final class EntityJoinLevelEventListener {
+	private EntityJoinLevelEventListener() {
+	}
 
 	@SubscribeEvent
 	public static void onEntityJoinLevel(final EntityJoinLevelEvent event) {
-		if (event.getEntity() instanceof ServerPlayer serverPlayer) {
-			if (serverPlayer.level().dimensionTypeId() == BuiltinDimensionTypes.OVERWORLD) {
-				RareMoonOverworldExtension data = RareMoonOverworldExtension.getData(event.getEntity().getServer());
-				RareMoon.CHANNEL.send(PacketDistributor.PLAYER.with(() -> serverPlayer), new SyncSavedDataPacket(data.getMoon()));
-			}
+		boolean isOverworld = event.getLevel().dimensionTypeId() == BuiltinDimensionTypes.OVERWORLD;
+		boolean isServerPlayer = event.getEntity() instanceof ServerPlayer;
+
+		if (isOverworld && isServerPlayer) {
+			ServerPlayer serverPlayer = (ServerPlayer) event.getEntity();
+			RareMoonOverworldExtension rareMoonOverworldExtension = RareMoonOverworldExtension.getData(event.getEntity().getServer());
+			RareMoon.CHANNEL.send(PacketDistributor.PLAYER.with(() -> serverPlayer), new SyncSavedDataPacket(rareMoonOverworldExtension.getMoonType()));
 		}
 	}
 }

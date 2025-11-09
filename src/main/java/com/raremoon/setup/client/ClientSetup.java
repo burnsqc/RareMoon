@@ -1,12 +1,15 @@
 package com.raremoon.setup.client;
 
-import com.raremoon.config.RareMoonConfigClient;
+import com.raremoon.config.RareMoonClientConfig;
 
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.config.ModConfig.Type;
 
-public class ClientSetup {
+public final class ClientSetup {
+	private ClientSetup() {
+	}
+
 	public static void init() {
-		ModLoadingContext.get().registerConfig(Type.CLIENT, RareMoonConfigClient.CLIENT_SPEC, "raremoon-client.toml");
+		ModLoadingContext.get().registerConfig(Type.CLIENT, RareMoonClientConfig.SPEC, "raremoon-client.toml");
 	}
 }

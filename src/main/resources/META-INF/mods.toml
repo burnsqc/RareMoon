@@ -4,10 +4,10 @@ logoFile="raremoon.png"
 license="All Rights Reserved"
 
 [[mods]]
-    modId="raremoon"
-    version="1.0.0-beta1"
     displayName="RareMoon"
-    credits="Special thanks to the generous help of the Forge/NeoForge Discord community!"
+    version="1.0.0"
+    modId="raremoon"
+    credits="NecroticPlague - collaboration/testing"
     authors="burnsqc"
     description='''RareMoon is a mod for Minecraft that occasionally causes a rare moon type to appear, affecting gameplay for the night.'''
 

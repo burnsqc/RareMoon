@@ -1,12 +1,11 @@
 package com.raremoon.listeners;
 
 import com.raremoon.client.multiplayer.ClientLevelDataExtension;
-import com.raremoon.config.RareMoonConfigClient;
+import com.raremoon.config.RareMoonClientConfig;
+import com.raremoon.util.MoonType;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.util.Mth;
-import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -14,26 +13,26 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @Mod.EventBusSubscriber(bus = EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
-public class ViewportEventListener {
+
+public final class ViewportEventListener {
+	private ViewportEventListener() {
+	}
 
 	@SubscribeEvent
-	public static void onViewportEvent$RenderFog(final ViewportEvent.ComputeFogColor event) {
+	public static void onViewportEvent$ComputeFogColor(final ViewportEvent.ComputeFogColor event) {
 		Minecraft minecraft = Minecraft.getInstance();
-		long time = minecraft.level.getDayTime() % 24000L - 12000;
-		float red = (ClientLevelDataExtension.getMoon() == 1) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.03F) : 0;
-		float yellow = (ClientLevelDataExtension.getMoon() == 2) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 4000F, 0.0F, 0.02F) : 0;
-		float green = (ClientLevelDataExtension.getMoon() == 3) ? Mth.clamp(time < 6000 ? time / 4000F : -(time - 12000) / 400F, 0.0F, 0.02F) : 0;
-		float blue = (ClientLevelDataExtension.getMoon() == 4) ? Mth.clamp(time < 6000 ? time / 2000F : -(time - 12000) / 2000F, 0.0F, 0.05F) : 0;
+		MoonType moonType = ClientLevelDataExtension.getMoon();
 
-		ClientLevel level = minecraft.level;
+		long timeOfNight = minecraft.level.getDayTime() % 24000L - 12000;
+		float nightTriangleWave = (timeOfNight < 6000 ? timeOfNight : -(timeOfNight - 12000)) / 4000F;
 
-		Vec3 vec3 = level.getSkyColor(minecraft.gameRenderer.getMainCamera().getPosition(), minecraft.getPartialTick());
-		float f = (float) vec3.x;
-		float f1 = (float) vec3.y;
-		float f2 = (float) vec3.z;
-		float factor = RareMoonConfigClient.MOON_COLOR_CORRECTION.get() / 100.0F;
-		event.setRed(f + factor * (red + yellow));
-		event.setGreen(f1 + factor * (green + yellow));
-		event.setBlue(f2 + factor * (blue));
+		float factor = RareMoonClientConfig.MOON_COLOR_CORRECTION.get() / 50.0F;
+		float red = factor * Mth.clamp(nightTriangleWave, 0.0F, moonType.getRed());
+		float green = factor * Mth.clamp(nightTriangleWave, 0.0F, moonType.getGreen());
+		float blue = factor * Mth.clamp(nightTriangleWave, 0.0F, moonType.getBlue());
+
+		event.setRed(event.getRed() + red);
+		event.setGreen(event.getGreen() + green);
+		event.setBlue(event.getBlue() + blue);
 	}
 }
