@@ -14,7 +14,7 @@ license="All Rights Reserved"
 [[dependencies.raremoon]] 
     modId="forge" 
     mandatory=true
-    versionRange="[47,)"
+    versionRange="[45,)"
     ordering="NONE"
     side="BOTH"
 

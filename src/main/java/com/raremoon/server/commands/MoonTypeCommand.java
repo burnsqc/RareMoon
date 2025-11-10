@@ -27,7 +27,7 @@ public final class MoonTypeCommand {
 	private static int setMoonType(CommandSourceStack stack, MoonType moonType) {
 		RareMoonOverworldExtension data = RareMoonOverworldExtension.getData(stack.getLevel().getServer());
 		data.setMoonType(moonType);
-		stack.sendSuccess(() -> moonType.getCommandResponseMessage(), true);
+		stack.sendSuccess(moonType.getCommandResponseMessage(), true);
 		return -1;
 	}
 }

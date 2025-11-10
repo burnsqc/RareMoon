@@ -18,5 +18,5 @@ plugins {
 gradle.ext.modName = 'RareMoon'
 gradle.ext.modID = 'raremoon'
 gradle.ext.modVersion = '1.0.0'
-gradle.ext.forgeVersion = '47.2.1'
-gradle.ext.minecraftVersion = '1.20.1'
+gradle.ext.forgeVersion = '45.3.0'
+gradle.ext.minecraftVersion = '1.19.4'

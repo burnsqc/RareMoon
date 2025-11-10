@@ -38,7 +38,7 @@ public final class ClientboundPacketHandlers {
 			}
 			if (RareMoonClientConfig.RARE_MOON_SOUND_NOTIFICATION.get()) {
 				RareMoon.LOGGER.trace(NETWORK, "Sound notifications on, playing sound");
-				player.level().playLocalSound(player.getX(), player.getY(), player.getZ(), moonType.getNotificationSound(), SoundSource.AMBIENT, 1.0F, 1.0F, false);
+				player.level.playLocalSound(player.getX(), player.getY(), player.getZ(), moonType.getNotificationSound(), SoundSource.AMBIENT, 1.0F, 1.0F, false);
 			}
 		}
 	}
