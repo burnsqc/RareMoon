@@ -27,11 +27,12 @@ public class LivingHurtEventListener {
 		boolean isBloodMoon = RareMoonOverworldExtension.getData(event.getEntity().level.getServer()).getMoonType() == MoonType.BLOOD;
 
 		if (isOverworld && isBloodMoon) {
-			boolean isBloodMoonIncreased = RareMoonCommonConfig.BLOOD_MOON_INCREASED.get().contains(event.getSource().msgId);
+			boolean isBloodMoonIncreased = RareMoonCommonConfig.BLOOD_MOON_INCREASED.get().contains(event.getSource().getMsgId());
+
 			if (isBloodMoonIncreased) {
 				float amountOrig = event.getAmount();
 				event.setAmount((float) (event.getAmount() * RareMoonCommonConfig.BLOOD_MOON_MULTIPLIER.get()));
-				RareMoon.LOGGER.trace(LISTENER, "Damage " + event.getSource().getMsgId() + " changed from " + amountOrig + " to " + event.getAmount() + " due to Blood Moon");
+				RareMoon.LOGGER.debug(LISTENER, "Damage " + event.getSource().getMsgId() + " changed from " + amountOrig + " to " + event.getAmount() + " due to Blood Moon");
 			}
 		}
 	}
