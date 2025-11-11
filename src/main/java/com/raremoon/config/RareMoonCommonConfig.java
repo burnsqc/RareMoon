@@ -1,5 +1,7 @@
 package com.raremoon.config;
 
+import java.util.List;
+
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 import net.minecraftforge.fml.common.Mod;
@@ -14,9 +16,10 @@ public final class RareMoonCommonConfig {
 	public static final ForgeConfigSpec.ConfigValue<Integer> FORTUNE_MOON_WEIGHT;
 	public static final ForgeConfigSpec.ConfigValue<Integer> HARVEST_MOON_WEIGHT;
 	public static final ForgeConfigSpec.ConfigValue<Integer> BLUE_MOON_WEIGHT;
-	public static final ConfigValue<Double> BLOOD_MOON_MULTIPLIER;
-	public static final ConfigValue<Integer> FORTUNE_MOON_MULTIPLIER;
-	public static final ConfigValue<Integer> HARVEST_MOON_MULTIPLIER;
+	public static final ForgeConfigSpec.ConfigValue<Double> BLOOD_MOON_MULTIPLIER;
+	public static final ConfigValue<List<? extends String>> BLOOD_MOON_INCREASED;
+	public static final ForgeConfigSpec.ConfigValue<Integer> FORTUNE_MOON_MULTIPLIER;
+	public static final ForgeConfigSpec.ConfigValue<Integer> HARVEST_MOON_MULTIPLIER;
 	public static final ForgeConfigSpec.ConfigValue<Integer> BLUE_MOON_DURATION;
 	public static final ForgeConfigSpec.ConfigValue<Integer> BLUE_MOON_COOLDOWN;
 
@@ -38,6 +41,7 @@ public final class RareMoonCommonConfig {
 
 		BUILDER.push("EFFECTS");
 		BLOOD_MOON_MULTIPLIER = BUILDER.comment("Damage multipliter during blood moon.").defineInRange("Blood Moon Damage Multiplier", 2.0F, 1.0F, 100.0F);
+		BLOOD_MOON_INCREASED = BUILDER.comment("Damage multipliter during blood moon.").defineList("Blood Moon Damage Multiplier", List.of("123"), null);
 		FORTUNE_MOON_MULTIPLIER = BUILDER.comment("Loot multipliter during fortune moon.").defineInRange("Fortune Moon Loot Multiplier", 2, 1, 100);
 		HARVEST_MOON_MULTIPLIER = BUILDER.comment("Loot multipliter during harvest moon.").defineInRange("Harvest Moon Loot Multiplier", 2, 1, 100);
 		BLUE_MOON_DURATION = BUILDER.comment("Duration of random effects during blue moon in seconds.").defineInRange("Blue Moon Effect Duration", 15, 0, 16777215);

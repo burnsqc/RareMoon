@@ -5,7 +5,6 @@ import org.apache.logging.log4j.MarkerManager;
 
 import com.raremoon.RareMoon;
 import com.raremoon.config.RareMoonCommonConfig;
-import com.raremoon.registration.dynamic.RareMoonDamageTypeTags;
 import com.raremoon.util.MoonType;
 import com.raremoon.world.level.saveddata.RareMoonOverworldExtension;
 
@@ -28,7 +27,7 @@ public class LivingHurtEventListener {
 		boolean isBloodMoon = RareMoonOverworldExtension.getData(event.getEntity().level.getServer()).getMoonType() == MoonType.BLOOD;
 
 		if (isOverworld && isBloodMoon) {
-			boolean isBloodMoonIncreased = event.getSource().is(RareMoonDamageTypeTags.BLOOD_MOON_INCREASED);
+			boolean isBloodMoonIncreased = RareMoonCommonConfig.BLOOD_MOON_INCREASED.get().contains(event.getSource().msgId);
 			if (isBloodMoonIncreased) {
 				float amountOrig = event.getAmount();
 				event.setAmount((float) (event.getAmount() * RareMoonCommonConfig.BLOOD_MOON_MULTIPLIER.get()));
