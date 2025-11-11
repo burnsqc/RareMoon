@@ -3,6 +3,7 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id 'com.diffplug.eclipse.apt' version '3.23.0'
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
@@ -38,19 +39,19 @@ minecraft {
         }
 
         client {
-            property 'forge.enabledGameTestNamespaces', "${gradle.ext.modID}mod"
+            property 'forge.enabledGameTestNamespaces', "${gradle.ext.modID}"
         }
 
         server {
-            property 'forge.enabledGameTestNamespaces', "${gradle.ext.modID}mod"
+            property 'forge.enabledGameTestNamespaces', "${gradle.ext.modID}"
         }
 
         gameTestServer {
-            property 'forge.enabledGameTestNamespaces', "${gradle.ext.modID}mod"
+            property 'forge.enabledGameTestNamespaces', "${gradle.ext.modID}"
         }
 
         data {
-            args '--mod', "${gradle.ext.modID}mod", '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', "${gradle.ext.modID}", '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
     }
 }
@@ -65,8 +66,8 @@ dependencies {
 }
 
 mixin {
-	add sourceSets.main, "${gradle.ext.modID}mod.mixins.refmap.json"
-	config "${gradle.ext.modID}mod.mixins.json"
+	add sourceSets.main, "${gradle.ext.modID}.mixins.refmap.json"
+	config "${gradle.ext.modID}.mixins.json"
 	debug.verbose = true
 	debug.export = true
 }
@@ -74,7 +75,7 @@ mixin {
 tasks.named('jar', Jar).configure {
     manifest {
         attributes([
-            "Specification-Title": "${gradle.ext.modID}",
+            "Specification-Title": "${gradle.ext.modName}",
             "Specification-Vendor": "${gradle.ext.modID}mod",
             "Specification-Version": "1",
             "Implementation-Title": project.name,
