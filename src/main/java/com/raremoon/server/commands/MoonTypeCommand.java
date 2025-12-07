@@ -1,14 +1,11 @@
 package com.raremoon.server.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
-
 import com.raremoon.util.MoonType;
-
 import com.raremoon.world.level.saveddata.RareMoonOverworldExtension;
 
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-
 
 public final class MoonTypeCommand {
 	private MoonTypeCommand() {
