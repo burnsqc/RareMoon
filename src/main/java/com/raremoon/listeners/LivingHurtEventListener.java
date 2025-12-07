@@ -32,7 +32,7 @@ public class LivingHurtEventListener {
 			if (isBloodMoonIncreased) {
 				float amountOrig = event.getAmount();
 				event.setAmount((float) (event.getAmount() * RareMoonCommonConfig.BLOOD_MOON_MULTIPLIER.get()));
-				RareMoon.LOGGER.debug(LISTENER, "Damage " + event.getSource().getMsgId() + " changed from " + amountOrig + " to " + event.getAmount() + " due to Blood Moon");
+				RareMoon.LOGGER.trace(LISTENER, "Damage " + event.getSource().getMsgId() + " changed from " + amountOrig + " to " + event.getAmount() + " due to Blood Moon");
 			}
 		}
 	}
