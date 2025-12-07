@@ -35,14 +35,14 @@ public final class PlayerTickEventListener {
 		boolean isServerPlayer = event.player instanceof ServerPlayer;
 
 		if (isServerPlayer) {
-			boolean isOverworld = event.player.level.dimensionTypeId() == BuiltinDimensionTypes.OVERWORLD;
-			boolean isBlueMoon = RareMoonOverworldExtension.getData(event.player.level.getServer()).getMoonType() == MoonType.BLUE;
+			boolean isOverworld = event.player.level().dimensionTypeId() == BuiltinDimensionTypes.OVERWORLD;
+			boolean isBlueMoon = RareMoonOverworldExtension.getData(event.player.level().getServer()).getMoonType() == MoonType.BLUE;
 
 			if (isOverworld && isBlueMoon) {
 				boolean isCreativeMode = event.player.getAbilities().instabuild;
 				boolean isSpectatorMode = event.player.isSpectator();
 				boolean hasNoEffects = event.player.getActiveEffects().isEmpty();
-				boolean hasCooldownFinished = event.player.level.getGameTime() % (RareMoonCommonConfig.BLUE_MOON_DURATION.get() * 20 + RareMoonCommonConfig.BLUE_MOON_COOLDOWN.get() * 20) == 0;
+				boolean hasCooldownFinished = event.player.level().getGameTime() % (RareMoonCommonConfig.BLUE_MOON_DURATION.get() * 20 + RareMoonCommonConfig.BLUE_MOON_COOLDOWN.get() * 20) == 0;
 
 				if (!isCreativeMode && !isSpectatorMode && hasNoEffects && hasCooldownFinished) {
 					List<MobEffect> mobEffectsFiltered = ForgeRegistries.MOB_EFFECTS.getValues().stream().filter(effect -> ForgeRegistries.MOB_EFFECTS.tags().getTag(RareMoonMobEffectTags.BLUE_MOON_RANDOMIZED).contains(effect)).toList();

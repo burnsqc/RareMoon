@@ -23,8 +23,8 @@ public class LivingHurtEventListener {
 
 	@SubscribeEvent
 	public static void onLivingHurtEvent(final LivingHurtEvent event) {
-		boolean isOverworld = event.getEntity().level.dimensionTypeId() == BuiltinDimensionTypes.OVERWORLD;
-		boolean isBloodMoon = RareMoonOverworldExtension.getData(event.getEntity().level.getServer()).getMoonType() == MoonType.BLOOD;
+		boolean isOverworld = event.getEntity().level().dimensionTypeId() == BuiltinDimensionTypes.OVERWORLD;
+		boolean isBloodMoon = RareMoonOverworldExtension.getData(event.getEntity().level().getServer()).getMoonType() == MoonType.BLOOD;
 
 		if (isOverworld && isBloodMoon) {
 			boolean isBloodMoonIncreased = RareMoonCommonConfig.BLOOD_MOON_INCREASED.get().contains(event.getSource().getMsgId());
