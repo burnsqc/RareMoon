@@ -15,8 +15,7 @@ public final class MoonTypeCommand {
 	}
 
 	public static void register(CommandDispatcher<CommandSourceStack> command) {
-		command.register(Commands.literal("raremoon")
-				.requires((stack) -> stack.hasPermission(2))
+		command.register(Commands.literal("raremoon").requires((stack) -> stack.hasPermission(2))
 				.then(Commands.literal("normal").executes((context) -> setMoonType(context.getSource(), MoonType.NORMAL)))
 				.then(Commands.literal("blood").executes((context) -> setMoonType(context.getSource(), MoonType.BLOOD)))
 				.then(Commands.literal("fortune").executes((context) -> setMoonType(context.getSource(), MoonType.FORTUNE)))
