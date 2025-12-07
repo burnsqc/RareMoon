@@ -52,8 +52,8 @@ public final class RareMoonCommonConfig {
 		BUILDER.pop();
 		BUILDER.push("BLUE_MOON");
 		BUILDER.comment("The list of which effect may be applied during a Blue Moon can be adjusted by editing data/raremoon/tags/mob_effect/blue_moon_randomized.json.");
-		BLUE_MOON_DURATION = BUILDER.comment("Duration of random effects during blue moon in seconds.").defineInRange("Blue Moon Effect Duration", 15, 0, 16777215);
-		BLUE_MOON_COOLDOWN = BUILDER.comment("Time between random effects during blue moon in seconds.").defineInRange("Blue Moon Effect Cooldown", 15, 0, 16777215);
+		BLUE_MOON_DURATION = BUILDER.comment("Duration of random effects during blue moon in seconds.").defineInRange("EFFECT_DURATION", 15, 0, 16777215);
+		BLUE_MOON_COOLDOWN = BUILDER.comment("Time between random effects during blue moon in seconds.").defineInRange("EFFECT_COOLDOWN", 15, 0, 16777215);
 		BUILDER.pop();
 		BUILDER.pop();
 
