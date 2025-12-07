@@ -21,7 +21,7 @@ println "Forge: ${gradle.ext.forgeVersion}"
 println "${gradle.ext.modName}: ${gradle.ext.modVersion}"
 
 minecraft {
-    mappings channel: 'official', version: "${gradle.ext.minecraftVersion}"
+    mappings channel: 'official', version: "${gradle.ext.mappingVersion}"
     copyIdeResources = true
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
