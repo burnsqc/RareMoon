@@ -40,6 +40,7 @@ public final class RareMoonCommonConfig {
 
 		BUILDER.push("EFFECTS");
 		BUILDER.push("BLOOD_MOON");
+		BUILDER.comment("The list of which damage sources will be multiplied during a Blood Moon can be adjusted by editing data/raremoon/tags/damage_type/blood_moon_increased.json.");
 		BLOOD_MOON_MULTIPLIER = BUILDER.comment("Damage multipliter during blood moon.").defineInRange("DAMAGE_MULTIPLIER", 2.0F, 1.0F, 100.0F);
 		BUILDER.pop();
 		BUILDER.push("FORTUNE_MOON");
