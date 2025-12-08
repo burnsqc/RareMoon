@@ -21,8 +21,8 @@ public final class RareMoonClientConfig {
 		BUILDER.comment("These settings have been set to defaults selected by the RareMoon development team.  It is recommended to make a backup of this file before modifying it.\n");
 
 		BUILDER.push("NOTIFICATIONS");
-		RARE_MOON_TEXT_NOTIFICATION = BUILDER.comment("true - Display a message when a rare moon appears.\nfalse - Do not display a message when a rare moon appears.").define("Text Notifications", true);
-		RARE_MOON_SOUND_NOTIFICATION = BUILDER.comment("true - Play a sound when a rare moon appears.\nfalse - Do not play a sound when a rare moon appears.").define("Sound Notifications", true);
+		RARE_MOON_TEXT_NOTIFICATION = BUILDER.comment("true - Display a message when a rare moon appears.\nfalse - Do not display a message when a rare moon appears.").define("Text", true);
+		RARE_MOON_SOUND_NOTIFICATION = BUILDER.comment("true - Play a sound when a rare moon appears.\nfalse - Do not play a sound when a rare moon appears.").define("Sound", true);
 		BUILDER.pop();
 
 		BUILDER.push("COLOR");

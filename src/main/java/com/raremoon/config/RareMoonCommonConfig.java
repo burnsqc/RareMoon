@@ -43,21 +43,21 @@ public final class RareMoonCommonConfig {
 
 		BUILDER.push("EFFECTS");
 		BUILDER.push("BLOOD_MOON");
-		BLOOD_MOON_MULTIPLIER = BUILDER.comment("Damage multipliter during blood moon.").defineInRange("DAMAGE_MULTIPLIER", 2.0F, 1.0F, 100.0F);
-		BLOOD_MOON_INCREASED = BUILDER.comment("Damage sources to be multiplied during blood moon.").defineList("INCREASED_DAMAGE_SOURCES", List.of("inFire", "onFire"), damageSource -> true);
+		BLOOD_MOON_MULTIPLIER = BUILDER.comment("Damage multipliter during a Blood Moon.").defineInRange("DAMAGE_MULTIPLIER", 2.0F, 1.0F, 100.0F);
+		BLOOD_MOON_INCREASED = BUILDER.comment("Damage sources to be multiplied during a Blood Moon.").defineList("INCREASED_DAMAGE_SOURCES", List.of("anvil", "arrow", "badRespawnPoint", "cactus", "cramming", "dragonBreath", "drown", "dryout", "explosion", "explosion.player", "fall", "fallingBlock", "fallingStalactite", "fireball", "fireworks", "flyIntoWall", "freeze", "generic", "hotFloor", "inFire", "inWall", "indirectMagic", "lava", "lightningBolt", "magic", "mob", "onFire", "outOfWorld", "player", "sonic_boom", "stalagmite", "starve", "sting", "sweetBerryBush", "thorns", "thrown", "trident", "witherSkull", "wither"), damageSource -> true);
 		BUILDER.pop();
 		BUILDER.push("FORTUNE_MOON");
 		BUILDER.comment("The list of which loot will be multiplied during a Fortune Moon can be adjusted by editing data/raremoon/tags/items/fortune_moon_increased.json.");
-		FORTUNE_MOON_MULTIPLIER = BUILDER.comment("Loot multipliter during fortune moon.").defineInRange("LOOT_MULTIPLIER", 2, 1, 100);
+		FORTUNE_MOON_MULTIPLIER = BUILDER.comment("Loot multipliter during a Fortune Moon.").defineInRange("LOOT_MULTIPLIER", 2, 1, 100);
 		BUILDER.pop();
 		BUILDER.push("HARVEST_MOON");
 		BUILDER.comment("The list of which loot will be multiplied during a Harvest Moon can be adjusted by editing data/raremoon/tags/items/harvest_moon_increased.json.");
-		HARVEST_MOON_MULTIPLIER = BUILDER.comment("Loot multipliter during harvest moon.").defineInRange("LOOT_MULTIPLIER", 2, 1, 100);
+		HARVEST_MOON_MULTIPLIER = BUILDER.comment("Loot multipliter during a Harvest Moon.").defineInRange("LOOT_MULTIPLIER", 2, 1, 100);
 		BUILDER.pop();
 		BUILDER.push("BLUE_MOON");
 		BUILDER.comment("The list of which effect may be applied during a Blue Moon can be adjusted by editing data/raremoon/tags/mob_effect/blue_moon_randomized.json.");
-		BLUE_MOON_DURATION = BUILDER.comment("Duration of random effects during blue moon in seconds.").defineInRange("EFFECT_DURATION", 15, 0, 16777215);
-		BLUE_MOON_COOLDOWN = BUILDER.comment("Time between random effects during blue moon in seconds.").defineInRange("EFFECT_COOLDOWN", 15, 0, 16777215);
+		BLUE_MOON_DURATION = BUILDER.comment("Duration of random effects during a Blue Moon in seconds.").defineInRange("EFFECT_DURATION", 15, 0, 16777215);
+		BLUE_MOON_COOLDOWN = BUILDER.comment("Time between random effects during a Blue Moon in seconds.").defineInRange("EFFECT_COOLDOWN", 15, 0, 16777215);
 		BUILDER.pop();
 		BUILDER.pop();
 
