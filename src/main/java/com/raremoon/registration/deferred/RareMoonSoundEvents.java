@@ -19,8 +19,8 @@ public final class RareMoonSoundEvents {
 		SOUND_EVENTS.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}
 
-	public static final RegistryObject<SoundEvent> BLOOD_MOON = SOUND_EVENTS.register("blood_moon", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(RareMoon.MOD_ID, "blood_moon")));
-	public static final RegistryObject<SoundEvent> FORTUNE_MOON = SOUND_EVENTS.register("fortune_moon", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(RareMoon.MOD_ID, "fortune_moon")));
-	public static final RegistryObject<SoundEvent> HARVEST_MOON = SOUND_EVENTS.register("harvest_moon", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(RareMoon.MOD_ID, "harvest_moon")));
-	public static final RegistryObject<SoundEvent> BLUE_MOON = SOUND_EVENTS.register("blue_moon", () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(RareMoon.MOD_ID, "blue_moon")));
+	public static final RegistryObject<SoundEvent> BLOOD_MOON = SOUND_EVENTS.register("blood_moon", () -> new SoundEvent(new ResourceLocation(RareMoon.MOD_ID, "blood_moon")));
+	public static final RegistryObject<SoundEvent> FORTUNE_MOON = SOUND_EVENTS.register("fortune_moon", () -> new SoundEvent(new ResourceLocation(RareMoon.MOD_ID, "fortune_moon")));
+	public static final RegistryObject<SoundEvent> HARVEST_MOON = SOUND_EVENTS.register("harvest_moon", () -> new SoundEvent(new ResourceLocation(RareMoon.MOD_ID, "harvest_moon")));
+	public static final RegistryObject<SoundEvent> BLUE_MOON = SOUND_EVENTS.register("blue_moon", () -> new SoundEvent(new ResourceLocation(RareMoon.MOD_ID, "blue_moon")));
 }
