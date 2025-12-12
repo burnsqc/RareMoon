@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[47,)"
+loaderVersion="[46,)"
 logoFile="raremoon.png"
 license="All Rights Reserved"
 
@@ -14,13 +14,13 @@ license="All Rights Reserved"
 [[dependencies.raremoon]] 
     modId="forge" 
     mandatory=true
-    versionRange="[47,)"
+    versionRange="[46,)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.raremoon]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.20.1]"
+    versionRange="[1.20]"
     ordering="NONE"
     side="BOTH"
