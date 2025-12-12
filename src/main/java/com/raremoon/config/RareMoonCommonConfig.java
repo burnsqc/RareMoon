@@ -47,11 +47,11 @@ public final class RareMoonCommonConfig {
 		BLOOD_MOON_INCREASED = BUILDER.comment("Damage sources to be multiplied during a Blood Moon.").defineList("INCREASED_DAMAGE_SOURCES", List.of("anvil", "arrow", "badRespawnPoint", "cactus", "cramming", "dragonBreath", "drown", "dryout", "explosion", "explosion.player", "fall", "fallingBlock", "fallingStalactite", "fireball", "fireworks", "flyIntoWall", "freeze", "generic", "hotFloor", "inFire", "inWall", "indirectMagic", "lava", "lightningBolt", "magic", "mob", "onFire", "outOfWorld", "player", "sonic_boom", "stalagmite", "starve", "sting", "sweetBerryBush", "thorns", "thrown", "trident", "witherSkull", "wither"), damageSource -> true);
 		BUILDER.pop();
 		BUILDER.push("FORTUNE_MOON");
-		BUILDER.comment("The list of which loot will be multiplied during a Fortune Moon can be adjusted by editing data/raremoon/tags/items/fortune_moon_increased.json.");
+		BUILDER.comment("The list of which loot will be multiplied during a Fortune Moon can be adjusted by editing data/raremoon/tags/items/fortune_moon_increased.json and data/raremoon/loot_modifiers/blocks/fortune_moon_loot_modifier.json.");
 		FORTUNE_MOON_MULTIPLIER = BUILDER.comment("Loot multipliter during a Fortune Moon.").defineInRange("LOOT_MULTIPLIER", 2, 1, 100);
 		BUILDER.pop();
 		BUILDER.push("HARVEST_MOON");
-		BUILDER.comment("The list of which loot will be multiplied during a Harvest Moon can be adjusted by editing data/raremoon/tags/items/harvest_moon_increased.json.");
+		BUILDER.comment("The list of which loot will be multiplied during a Harvest Moon can be adjusted by editing data/raremoon/tags/items/harvest_moon_increased.json and data/raremoon/loot_modifiers/blocks/harvest_moon_loot_modifier.json.");
 		HARVEST_MOON_MULTIPLIER = BUILDER.comment("Loot multipliter during a Harvest Moon.").defineInRange("LOOT_MULTIPLIER", 2, 1, 100);
 		BUILDER.pop();
 		BUILDER.push("BLUE_MOON");
