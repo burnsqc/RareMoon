@@ -30,14 +30,6 @@
         },
         {
           "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:blocks/torchflower_crop"
-        },
-		{
-          "condition": "forge:loot_table_id",
-          "loot_table_id": "minecraft:blocks/torchflower"
-        },
-        {
-          "condition": "forge:loot_table_id",
           "loot_table_id": "minecraft:blocks/cocoa"
         },
 		{
